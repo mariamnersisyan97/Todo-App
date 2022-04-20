@@ -1,4 +1,15 @@
-//write code in here 
+
 export const App = () => {
-  return <p>Hello World</p>
+  return(
+    <div>
+    <header style={{ textAlign: 'center'}}>
+     <h1> To Do List</h1>
+     </header>
+     <button style={{ textAlign: 'center'}}> Add Task </button>
+     </div>
+  )
+
 };
+// const handleTaskItem = () => {
+
+// }
