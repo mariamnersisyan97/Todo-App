@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const TodoForm = () => {
   const [input, setInput] = useState("");
+  // const style = { textAlign: "center" };
   return (
     <>
       {
@@ -18,7 +19,7 @@ const TodoForm = () => {
               />
             </div>
           </div>
-          <p>First Task</p>
+          <p style={{ textAlign: "center" }}>First Task</p>
           <div className="add-task-buton" style={{ textAlign: "center" }}>
             <button type="button"> Add Task </button>
           </div>
