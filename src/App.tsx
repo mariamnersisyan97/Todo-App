@@ -4,7 +4,9 @@ import TodoList from "./components/TodoList";
 export const App = () => {
   return (
     <>
-      <TodoForm /> <TodoList />
+      <div className="ui container" style={{ marginTop: "10px" }}>
+        <TodoForm />
+      </div>
     </>
   );
 };

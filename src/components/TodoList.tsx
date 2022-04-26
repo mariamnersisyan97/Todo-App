@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 const TodoList = () => {
-  const taskList = [];
+  const [todo, addTodo] = useState([]);
+  //empty array of todos
   // make an input
   // render input on ul/li
   // make a func that takes the value + adds it to a list
@@ -9,7 +10,7 @@ const TodoList = () => {
 
   return (
     <>
-      <p> </p>;
+      <p style={{ textAlign: "center" }}>Task #1 </p>
     </>
   );
 };

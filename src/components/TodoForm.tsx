@@ -1,33 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 
-const TodoForm = () => {
-  const [input, setInput] = useState("");
-  // const style = { textAlign: "center" };
-  return (
-    <>
-      {
-        <div>
-          <header style={{ textAlign: "center" }}>
-            <h1> To Do List</h1>
-          </header>
-          <div style={{ textAlign: "center" }}>
-            <div className="task-input">
-              <input
-                type="text"
-                placeholder="Task..."
-                onChange={(e) => setInput(e.target.value)}
-              />
-            </div>
+class TodoForm extends React.Component {
+  state = { term: "" };
+
+  render() {
+    return (
+      <div className="ui segment">
+        <form className="ui form">
+          <div className="field">
+            <label> Todo List</label>
+            <input
+              type="text"
+              value={this.state.term}
+              onChange={(e) => this.setState({ term: e.target.value })}
+            />
           </div>
-          <p style={{ textAlign: "center" }}>First Task</p>
-          <div className="add-task-buton" style={{ textAlign: "center" }}>
-            <button type="button"> Add Task </button>
-          </div>
-        </div>
-      }
-    </>
-  );
-};
+        </form>
+      </div>
+    );
+  }
+}
 
 export default TodoForm;
 //You add the input value to your array of todos when you click the button
