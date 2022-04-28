@@ -2,11 +2,20 @@ import React from "react";
 
 class TodoForm extends React.Component {
   state = { term: "" };
+  onFormSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    console.log(this.state.term);
+  };
+
+  // onFormSubmit(e: { preventDefault: () => void }) {
+  //   e.preventDefault();
+  //   console.log(this.state.term);
+  // }
 
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label> Todo List</label>
             <input
@@ -22,4 +31,3 @@ class TodoForm extends React.Component {
 }
 
 export default TodoForm;
-//You add the input value to your array of todos when you click the button
