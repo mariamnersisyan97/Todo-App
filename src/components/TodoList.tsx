@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
+import Todo from "./Todo";
 
-const TodoList = () => {
-  const [todo, addTodo] = useState([]);
-  //empty array of todos
-  // make an input
-  // render input on ul/li
-  // make a func that takes the value + adds it to a list
-  // react to loop over the list to display them all(.map())
-
+function TodoList({ todos }: { todos: any }) {
   return (
     <>
       <p style={{ textAlign: "center" }}>Task #1 </p>
+      <ul>
+        {todos.map((todo: { id: React.Key | null | undefined }) => (
+          <Todo key={todo.id} todo={todo} />
+          //map over todos and return todo component with obj passed as a prop
+        ))}
+      </ul>
     </>
   );
-};
+}
 export default TodoList;

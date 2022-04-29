@@ -1,33 +1,35 @@
-import React from "react";
-
-class TodoForm extends React.Component {
-  state = { term: "" };
-  onFormSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    console.log(this.state.term);
-  };
-
-  // onFormSubmit(e: { preventDefault: () => void }) {
-  //   e.preventDefault();
-  //   console.log(this.state.term);
-  // }
-
-  render() {
-    return (
-      <div className="ui segment">
-        <form onSubmit={this.onFormSubmit} className="ui form">
-          <div className="field">
-            <label> Todo List</label>
-            <input
-              type="text"
-              value={this.state.term}
-              onChange={(e) => this.setState({ term: e.target.value })}
-            />
-          </div>
-        </form>
-      </div>
-    );
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+function TodoForm({ addTodo }: { addTodo: any }) {
+  const [todo, setTodo] = useState({
+    id: "",
+    task: "",
+    completed: false,
+  });
+  function handleTaskInputChange(e: { target: { value: any } }) {
+    setTodo({ ...todo, task: e.target.value });
   }
+
+  function handleSubmit(e: { preventDefault: () => void }) {
+    e.preventDefault();
+    if (todo.task.trim()) {
+      addTodo({ ...todo, id: uuidv4() });
+      //resetting task input
+      setTodo({ ...todo, task: "" });
+    }
+  }
+  return (
+    <div className="ui segment">
+      <form onSubmit={handleSubmit} className="ui form">
+        <div className="field">
+          <label> Todo List</label>
+          <input name="task" type="text" onChange={handleTaskInputChange} />
+          <button type="submit">submit</button>
+        </div>
+      </form>
+    </div>
+  );
 }
+// handleSubmit fires when the form is submitted
 
 export default TodoForm;
