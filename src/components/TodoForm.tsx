@@ -24,7 +24,7 @@ function TodoForm({ addTodo }: { addTodo: any }) {
         <div className="field">
           <label> Todo List</label>
           <input name="task" type="text" onChange={handleTaskInputChange} />
-          <button type="submit">submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
